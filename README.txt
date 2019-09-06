@@ -6,6 +6,8 @@ Back office login
 darren@moriyama.co.uk
 abc123abc123
 
+https://www.nuget.org/packages/Moriyama.AuthorisedMedia
+
 Overview
 --------
 
