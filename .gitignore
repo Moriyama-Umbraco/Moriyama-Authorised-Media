@@ -73,3 +73,4 @@ node_modules/
 ConnectionStrings.Secret.config
 AppSettings.Secret.config
 src/Moriyama.AuthorisedMedia.Web/Media/
+src/Moriyama.AuthorisedMedia.Web/App_Data/Models/all.dll.path
