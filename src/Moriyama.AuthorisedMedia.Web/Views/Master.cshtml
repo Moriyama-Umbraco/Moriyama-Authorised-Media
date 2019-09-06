@@ -60,6 +60,14 @@
     </header>
 
     <main>
+        <h1>@Members.IsLoggedIn()</h1>
+
+        @if(!Members.IsLoggedIn()) {
+            <p>
+                <a href="/umbraco/surface/testsurface/login"
+            </p>
+        }
+
         @RenderBody()
     </main>
 
