@@ -23,6 +23,10 @@ MediaParentId int not null
 CREATE UNIQUE INDEX AuthorisedMediaIdx
 ON AuthorisedMedia(MediaPathId, MediaParentId);
 
+Also - add the following HTTP module - before imageprocessor:
+
+<add name="AuthorisedMediaHttpModule" type="Moriyama.AuthorisedMedia.Application.AuthorisedMediaHttpModule, Moriyama.AuthorisedMedia" />
+
 How it works
 ------------
 
@@ -31,6 +35,12 @@ On media save, an entry is recorded in the database for the media item if it has
 An http module checks inbound requests for paths mathing /media/{folderId}/filename
 
 If matched, it will check the database table to see if there is protection on the item. for performance non protected items are bypassed for a minute - which avoids too many database queries.
+
+If an item is protected the request is redirected to a surface controller which will check member group permissions against the current member.
+
+Should the permissions not match - then a 404 status is returned.
+
+Permission checks are bypassed should you be logged in as a back office user.
 
 Restrictions
 ------------
